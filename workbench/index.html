@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- build: 2026-06-10 workbench-focus-v2 -->
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+
+<title>香格里拉酒店集团 × 钉钉数字化协同平台</title>
+<style>
+:root{
+  --gold:#C5A55A;
+  --gold-deep:#A8884A;
+  --gold-soft:#E8D5A6;
+  --blue:#0089FF;
+  --blue-deep:#0066CC;
+  --night:#0D1B2A;
+  --ivory:#FAF7F1;
+  --paper:#FFFFFF;
+  --ink:#1F2937;
+  --ink-soft:#4B5563;
+  --line:rgba(197,165,90,0.18);
+  --shadow:0 12px 40px rgba(13,27,42,0.08);
+  --shadow-lg:0 24px 60px rgba(13,27,42,0.12);
+  --radius:18px;
+  --radius-sm:12px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  color:var(--ink);
+  background:var(--ivory);
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.container{max-width:1200px;margin:0 auto;padding:0 28px}
+
+/* ───── Top Nav ───── */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  background:rgba(255,255,255,0.85);
+  backdrop-filter:saturate(140%) blur(14px);
+  -webkit-backdrop-filter:saturate(140%) blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:600;letter-spacing:0.5px}
+.brand-mark{
+  width:34px;height:34px;border-radius:9px;
+  background:linear-gradient(135deg,var(--gold) 0%,var(--blue) 100%);
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:14px;font-weight:700;
+  box-shadow:0 6px 16px rgba(197,165,90,0.35);
+}
+.brand-text{font-size:15px;color:var(--ink)}
+.brand-text small{display:block;font-size:11px;color:var(--ink-soft);font-weight:400;letter-spacing:1.5px}
+.nav-links{display:flex;gap:28px;font-size:14px;color:var(--ink-soft)}
+.nav-links a:hover{color:var(--gold-deep)}
+@media(max-width:860px){.nav-links{display:none}}
+
+/* ───── Hero ───── */
+.hero{
+  position:relative;min-height:92vh;
+  padding:140px 0 80px;
+  overflow:hidden;
+  background:
+    radial-gradient(ellipse 80% 50% at 80% 20%, rgba(0,137,255,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 60% at 10% 80%, rgba(197,165,90,0.12) 0%, transparent 60%),
+    linear-gradient(180deg, #FFFDF8 0%, var(--ivory) 100%);
+}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(197,165,90,0.06) 0%, transparent 25%),
+    radial-gradient(circle at 80% 70%, rgba(0,137,255,0.05) 0%, transparent 25%);
+  pointer-events:none;
+}
+.hero-inner{position:relative;display:grid;grid-template-columns:1.1fr 0.9fr;gap:60px;align-items:center}
+@media(max-width:980px){.hero-inner{grid-template-columns:1fr;gap:40px}}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:8px 16px;border-radius:999px;
+  background:rgba(197,165,90,0.1);
+  color:var(--gold-deep);font-size:13px;letter-spacing:1px;
+  border:1px solid rgba(197,165,90,0.25);
+  margin-bottom:24px;
+}
+.hero-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--gold)}
+.hero h1{
+  font-size:clamp(34px,4.6vw,56px);
+  font-weight:600;line-height:1.25;
+  color:var(--night);
+  letter-spacing:-0.5px;
+  margin-bottom:24px;
+}
+.hero h1 em{font-style:normal;color:var(--gold-deep);position:relative}
+.hero h1 em::after{
+  content:"";position:absolute;left:0;right:0;bottom:4px;height:8px;
+  background:linear-gradient(90deg,rgba(197,165,90,0.25),transparent);
+  z-index:-1;
+}
+.hero p.lede{
+  font-size:17px;color:var(--ink-soft);
+  max-width:540px;margin-bottom:36px;line-height:1.85;
+}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:14px 28px;border-radius:999px;
+  font-size:15px;font-weight:500;letter-spacing:0.5px;
+  border:none;cursor:pointer;transition:all .25s ease;
+}
+.btn-primary{
+  background:linear-gradient(135deg,var(--gold) 0%,var(--gold-deep) 100%);
+  color:#fff;
+  box-shadow:0 10px 28px rgba(197,165,90,0.4);
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(197,165,90,0.5)}
+.btn-ghost{
+  background:#fff;color:var(--night);
+  border:1px solid var(--line);
+}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold-deep)}
+.btn .arr{transition:transform .25s ease}
+.btn:hover .arr{transform:translateX(4px)}
+
+/* Hero visual mockup */
+.hero-visual{position:relative;width:100%;aspect-ratio:16/9;height:auto;}
+.mock-frame{
+  position:absolute;top:0;right:0;width:100%;height:100%;
+  border-radius:24px;
+  background:linear-gradient(135deg,#0D1B2A 0%,#1B2A3F 100%);
+  box-shadow:var(--shadow-lg);
+  overflow:hidden;
+  padding:20px;
+}
+/* Hero cover image (real photo) */
+.hero-cover{
+  position:relative;width:100%;height:100%;
+  border-radius:24px;overflow:hidden;
+  box-shadow:var(--shadow-lg);
+  background:linear-gradient(135deg,#0D1B2A,#1B2A3F);
+}
+.hero-cover img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform .8s ease;
+}
+.hero-cover:hover img{transform:scale(1.04)}
+.hero-cover-glow{
+  position:absolute;inset:0;pointer-events:none;
+  background:
+    linear-gradient(180deg,transparent 55%,rgba(13,27,42,0.55) 100%),
+    radial-gradient(circle at 80% 20%,rgba(197,165,90,0.18) 0%,transparent 45%);
+}
+.hero-cover-badge{
+  position:absolute;top:18px;left:18px;
+  display:inline-flex;align-items:center;gap:8px;
+  padding:8px 14px;border-radius:99px;
+  background:rgba(13,27,42,0.55);color:var(--gold-soft);
+  font-size:12px;letter-spacing:1px;
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border:1px solid rgba(197,165,90,0.25);
+  z-index:2;
+}
+.hero-cover-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 8px var(--gold)}
+.mock-frame::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:36px;
+  background:rgba(255,255,255,0.04);
+  border-bottom:1px solid rgba(255,255,255,0.06);
+}
+.mock-frame::after{
+  content:"";position:absolute;top:13px;left:18px;width:10px;height:10px;border-radius:50%;
+  background:#FF5F57;
+  box-shadow:18px 0 0 #FEBC2E,36px 0 0 #28C840;
+}
+.mock-content{margin-top:36px;color:#E8D5A6;height:calc(100% - 36px);display:flex;flex-direction:column;gap:14px;padding:14px 4px}
+.mock-greet{
+  font-size:13px;color:rgba(232,213,166,0.7);
+  display:flex;align-items:center;gap:8px;
+}
+.mock-greet::before{content:"●";color:#28C840;font-size:9px}
+.mock-card{
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(197,165,90,0.18);
+  border-radius:12px;padding:14px 16px;
+  display:flex;align-items:center;gap:12px;
+}
+.mock-icon{
+  width:36px;height:36px;border-radius:10px;
+  background:linear-gradient(135deg,var(--gold),var(--blue));
+  flex-shrink:0;display:flex;align-items:center;justify-content:center;
+  font-size:16px;
+}
+.mock-text{flex:1;color:#fff}
+.mock-text .t1{font-size:13px;font-weight:500}
+.mock-text .t2{font-size:11px;color:rgba(255,255,255,0.55);margin-top:2px}
+.mock-badge{
+  font-size:10px;padding:3px 8px;border-radius:999px;
+  background:rgba(0,137,255,0.2);color:#7FC0FF;
+}
+
+.hero-stats{
+  display:flex;gap:36px;margin-top:48px;
+  padding-top:32px;border-top:1px solid var(--line);
+}
+.stat .n{font-size:28px;font-weight:600;color:var(--night);letter-spacing:-0.5px}
+.stat .l{font-size:13px;color:var(--ink-soft);margin-top:4px}
+
+/* ───── Section common ───── */
+.section{padding:100px 0;position:relative}
+.section-eyebrow{
+  display:inline-block;padding:6px 14px;border-radius:999px;
+  background:rgba(0,137,255,0.08);color:var(--blue-deep);
+  font-size:12px;letter-spacing:2px;margin-bottom:18px;font-weight:500;
+}
+.section h2{
+  font-size:clamp(28px,3.4vw,40px);
+  font-weight:600;color:var(--night);
+  line-height:1.3;letter-spacing:-0.5px;
+  margin-bottom:18px;
+}
+.section .sub{
+  font-size:16px;color:var(--ink-soft);
+  max-width:680px;margin-bottom:56px;line-height:1.85;
+}
+.section-head{margin-bottom:56px}
+.section-head.center{text-align:center}
+.section-head.center .sub{margin-left:auto;margin-right:auto}
+
+/* ───── Value cards (4) ───── */
+.value-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:24px;
+}
+@media(max-width:980px){.value-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.value-grid{grid-template-columns:1fr}}
+.value-card{
+  background:#fff;border-radius:var(--radius);
+  padding:32px 26px;
+  border:1px solid var(--line);
+  box-shadow:var(--shadow);
+  transition:all .3s ease;
+  position:relative;overflow:hidden;
+}
+.value-card::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--gold),var(--blue));
+  transform:scaleX(0);transform-origin:left;transition:transform .4s ease;
+}
+.value-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.value-card:hover::before{transform:scaleX(1)}
+.value-icon{
+  width:52px;height:52px;border-radius:14px;
+  background:linear-gradient(135deg,rgba(197,165,90,0.12),rgba(0,137,255,0.1));
+  display:flex;align-items:center;justify-content:center;
+  font-size:24px;margin-bottom:20px;
+}
+.value-card h3{
+  font-size:18px;font-weight:600;color:var(--night);
+  margin-bottom:12px;line-height:1.4;
+}
+.value-card p{font-size:14px;color:var(--ink-soft);line-height:1.75}
+.value-role{
+  margin-top:18px;padding-top:16px;
+  border-top:1px dashed var(--line);
+  font-size:12px;color:var(--gold-deep);letter-spacing:0.5px;
+  display:flex;align-items:center;gap:6px;
+}
+.value-role::before{content:"·";font-size:18px;color:var(--gold)}
+
+/* ───── Scenarios ───── */
+.scenarios{background:#fff}
+.scenario{display:flex;flex-wrap:wrap;gap:40px;padding:60px 0;border-bottom:1px solid var(--line);align-items:center;}
+.scenario:last-child{border-bottom:none}
+.scenario.reverse .scenario-text{order:2}.scenario.reverse .scenario-demo{order:1}
+.scenario .scenario-text{flex:0 1 45%;min-width:280px;max-width:500px;}
+.scenario .scenario-demo{flex:1 1 40%;min-width:0;max-width:620px;overflow:hidden;}
+.scenario .scenario-text{min-width:0}
+.scenario .scenario-demo{min-width:0}
+.scenario img{max-width:100%;width:100%;height:auto;display:block}
+.scenario .demo-img{min-width:0;width:100%;overflow:hidden;border-radius:var(--radius)}
+.scenario.reverse .scenario-text{order:2}
+.scenario.reverse .scenario-demo{order:1}
+@media(max-width:980px){
+  .scenario,.scenario.reverse .scenario-text{order:2}.scenario.reverse .scenario-demo{order:1}
+  .scenario.reverse .scenario-text{order:1}
+  .scenario.reverse .scenario-demo{order:2}
+}
+.scenario-no{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:13px;color:var(--gold-deep);letter-spacing:2px;
+  margin-bottom:14px;font-weight:500;
+}
+.scenario-no .num{
+  width:28px;height:28px;border-radius:50%;
+  background:linear-gradient(135deg,var(--gold),var(--gold-deep));
+  color:#fff;display:flex;align-items:center;justify-content:center;
+  font-size:13px;
+}
+.scenario h3{
+  font-size:clamp(22px,2.4vw,28px);
+  font-weight:600;color:var(--night);
+  line-height:1.3;margin-bottom:18px;letter-spacing:-0.3px;
+}
+.pain{
+  padding:18px 22px;
+  background:linear-gradient(90deg,rgba(197,165,90,0.06),rgba(0,137,255,0.03));
+  border-left:3px solid var(--gold);
+  border-radius:0 var(--radius-sm) var(--radius-sm) 0;
+  font-size:15px;color:var(--ink-soft);line-height:1.85;
+  font-style:italic;margin-bottom:24px;
+}
+.pain::before{content:"\201C";font-size:32px;color:var(--gold);float:left;margin-right:8px;line-height:0.6;font-style:normal}
+.feat-list{display:flex;flex-direction:column;gap:14px;margin-bottom:28px}
+.feat{display:flex;align-items:flex-start;gap:14px;font-size:14.5px;line-height:1.7}
+.feat .ico{
+  flex-shrink:0;width:32px;height:32px;border-radius:9px;
+  background:rgba(0,137,255,0.08);color:var(--blue-deep);
+  display:flex;align-items:center;justify-content:center;
+  font-size:15px;
+}
+.feat strong{color:var(--night);font-weight:600;margin-right:6px}
+.scenario-cta{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:11px 22px;border-radius:999px;
+  background:#fff;border:1.5px solid var(--gold);
+  color:var(--gold-deep);font-size:14px;font-weight:500;
+  transition:all .25s ease;
+}
+.scenario-cta:hover{background:var(--gold);color:#fff}
+
+/* Demo blocks (mock UI) */
+.demo{
+  background:linear-gradient(135deg,#0D1B2A 0%,#1B2A3F 100%);
+  border-radius:var(--radius);
+  padding:24px;
+  box-shadow:var(--shadow-lg);
+  position:relative;overflow:hidden;
+  min-height:380px;
+  color:#fff;
+}
+.demo-bar{
+  display:flex;align-items:center;gap:8px;
+  padding-bottom:14px;margin-bottom:18px;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+.demo-bar .d{width:9px;height:9px;border-radius:50%}
+.demo-bar .r{background:#FF5F57}.demo-bar .y{background:#FEBC2E}.demo-bar .g{background:#28C840}
+.demo-bar .title{margin-left:8px;font-size:12px;color:rgba(255,255,255,0.5)}
+
+/* Demo with real screenshot image */
+.demo-img{
+  background:#fff;border-radius:var(--radius);
+  padding:0;overflow:hidden;
+  box-shadow:var(--shadow-lg);
+  border:1px solid var(--line);
+  position:relative;
+  min-height:380px;
+  display:flex;align-items:center;justify-content:center;
+}
+.demo-img img{
+  width:100%;height:auto;display:block;
+}
+.demo-img .demo-tag{
+  position:absolute;top:14px;left:14px;
+  background:rgba(13,27,42,0.85);color:var(--gold-soft);
+  font-size:11px;letter-spacing:1px;
+  padding:5px 12px;border-radius:99px;
+  backdrop-filter:blur(8px);
+  z-index:2;
+}
+.demo-img .demo-caption{
+  position:absolute;bottom:14px;right:14px;
+  background:rgba(255,255,255,0.92);color:var(--ink-soft);
+  font-size:11px;
+  padding:6px 12px;border-radius:99px;
+  backdrop-filter:blur(8px);
+  z-index:2;
+  border:1px solid var(--line);
+}
+
+/* Demo 1: video meeting */
+.meet-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.meet-tile{
+  aspect-ratio:16/10;border-radius:10px;
+  background:linear-gradient(135deg,#2A3F5F,#1B2A3F);
+  position:relative;display:flex;align-items:flex-end;
+  padding:10px;font-size:11px;
+  border:1px solid rgba(255,255,255,0.06);
+}
+.meet-tile.t1{background:linear-gradient(135deg,#4A5F7F,#2A3F5F)}
+.meet-tile.t2{background:linear-gradient(135deg,#7F5F4A,#5F3F2A)}
+.meet-tile.t3{background:linear-gradient(135deg,#5F7F4A,#3F5F2A)}
+.meet-tile.t4{background:linear-gradient(135deg,#7F4A5F,#5F2A3F)}
+.meet-tile span{position:absolute;bottom:8px;left:10px;color:rgba(255,255,255,0.85)}
+.meet-tile .lang{position:absolute;top:8px;right:8px;font-size:10px;padding:2px 6px;border-radius:4px;background:rgba(0,137,255,0.4)}
+.subtitle-bar{
+  background:rgba(0,0,0,0.3);border-radius:8px;padding:10px 14px;
+  font-size:13px;color:#fff;border-left:2px solid var(--blue);
+  margin-bottom:10px;
+}
+.subtitle-bar small{color:rgba(255,255,255,0.5);font-size:10px;display:block;margin-top:2px}
+.ai-toast{
+  display:flex;align-items:center;gap:10px;padding:10px 14px;
+  background:linear-gradient(90deg,rgba(197,165,90,0.2),rgba(0,137,255,0.15));
+  border-radius:8px;font-size:12px;color:var(--gold-soft);
+  border:1px solid rgba(197,165,90,0.25);
+}
+.ai-toast .pulse{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse 1.4s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(1.4)}}
+
+/* Demo 2: knowledge base */
+.kb-search{
+  display:flex;align-items:center;gap:10px;
+  background:rgba(255,255,255,0.06);border-radius:10px;
+  padding:12px 16px;margin-bottom:18px;
+  border:1px solid rgba(197,165,90,0.2);
+}
+.kb-search .ico{color:var(--gold)}
+.kb-search input{
+  background:transparent;border:none;color:#fff;font-size:13px;
+  flex:1;outline:none;font-family:inherit;
+}
+.kb-list{display:flex;flex-direction:column;gap:10px}
+.kb-item{
+  padding:14px 16px;border-radius:10px;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.06);
+  font-size:13px;
+  transition:all .2s;
+}
+.kb-item:hover{border-color:rgba(197,165,90,0.4);background:rgba(255,255,255,0.06)}
+.kb-item .t{color:#fff;font-weight:500;margin-bottom:4px}
+.kb-item .m{font-size:11px;color:rgba(255,255,255,0.5);display:flex;gap:12px}
+.kb-item .m .tag{padding:1px 6px;border-radius:4px;background:rgba(197,165,90,0.15);color:var(--gold-soft)}
+
+/* Demo 3: AI chat */
+.chat{display:flex;flex-direction:column;gap:14px}
+.msg{display:flex;gap:10px;align-items:flex-start;font-size:13px}
+.msg .av{
+  width:30px;height:30px;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:13px;color:#fff;font-weight:600;
+}
+.msg.user .av{background:linear-gradient(135deg,#5F7F9F,#3F5F7F)}
+.msg.ai .av{background:linear-gradient(135deg,var(--gold),var(--blue))}
+.msg .bub{
+  padding:10px 14px;border-radius:12px;max-width:85%;
+  background:rgba(255,255,255,0.06);color:#fff;line-height:1.6;
+}
+.msg.user .bub{background:rgba(95,127,159,0.25)}
+.msg.ai .bub{background:rgba(197,165,90,0.12);border:1px solid rgba(197,165,90,0.2)}
+.cite{margin-top:8px;font-size:11px;color:var(--gold-soft);display:flex;gap:8px;flex-wrap:wrap}
+.cite span{padding:2px 8px;border-radius:4px;background:rgba(197,165,90,0.15)}
+.fb{display:flex;gap:6px;margin-top:10px;font-size:11px;color:rgba(255,255,255,0.5)}
+.fb span{padding:3px 8px;border-radius:6px;background:rgba(255,255,255,0.05);cursor:pointer}
+
+/* Demo 4: low-code */
+.lc-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;height:340px}
+.lc-builder{
+  background:rgba(255,255,255,0.04);border-radius:10px;padding:14px;
+  border:1px dashed rgba(197,165,90,0.3);
+  display:flex;flex-direction:column;gap:8px;
+  font-size:12px;
+}
+.lc-builder .lb{font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:4px;letter-spacing:1px}
+.field-block{
+  padding:10px 12px;border-radius:8px;
+  background:rgba(255,255,255,0.06);color:#fff;
+  display:flex;justify-content:space-between;align-items:center;
+  border-left:2px solid var(--gold);
+}
+.field-block .grip{color:rgba(255,255,255,0.3);cursor:grab;font-size:14px}
+.lc-preview{
+  background:#fff;border-radius:10px;padding:18px;
+  color:var(--ink);overflow:hidden;
+}
+.lc-preview h4{font-size:14px;color:var(--night);margin-bottom:14px;font-weight:600;border-bottom:1.5px solid var(--gold);padding-bottom:8px}
+.fp{margin-bottom:12px}
+.fp label{font-size:11px;color:var(--ink-soft);display:block;margin-bottom:4px}
+.fp input,.fp select,.fp textarea{
+  width:100%;padding:7px 10px;border:1px solid #E5E7EB;
+  border-radius:6px;font-size:12px;background:#FAFAFA;font-family:inherit;
+}
+.stars{display:flex;gap:4px;color:var(--gold);font-size:14px}
+
+/* Demo 5: project board */
+.kanban{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;height:340px;overflow:hidden}
+.col{
+  background:rgba(255,255,255,0.04);border-radius:8px;
+  padding:10px 8px;display:flex;flex-direction:column;gap:8px;
+  font-size:11px;
+}
+.col-head{
+  font-size:10px;color:rgba(255,255,255,0.6);
+  display:flex;justify-content:space-between;align-items:center;
+  padding:0 4px 6px;border-bottom:1px solid rgba(255,255,255,0.06);
+  letter-spacing:1px;
+}
+.col-head .cnt{padding:1px 6px;border-radius:99px;background:rgba(255,255,255,0.08)}
+.col.risk .col-head{color:#FF8A8A}
+.col.risk .col-head .cnt{background:rgba(255,138,138,0.2)}
+.tk{
+  background:#fff;color:var(--ink);
+  border-radius:6px;padding:8px 10px;font-size:11px;
+  box-shadow:0 2px 6px rgba(0,0,0,0.15);
+}
+.tk .tt{font-weight:500;margin-bottom:6px;line-height:1.3}
+.tk .meta{display:flex;justify-content:space-between;align-items:center;font-size:10px;color:#888}
+.tk .av{width:18px;height:18px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--blue));color:#fff;font-size:9px;display:inline-flex;align-items:center;justify-content:center}
+.tk.danger{border-left:2px solid #FF5F57}
+
+/* Demo 6: security */
+.sec-shield{
+  display:flex;flex-direction:column;align-items:center;
+  padding:30px 20px;
+}
+.shield-vis{
+  width:120px;height:140px;
+  background:linear-gradient(135deg,var(--gold),var(--gold-deep));
+  clip-path:polygon(50% 0,100% 20%,100% 70%,50% 100%,0 70%,0 20%);
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:48px;
+  position:relative;
+  box-shadow:0 12px 40px rgba(197,165,90,0.4);
+  animation:float 3s ease-in-out infinite;
+}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.sec-matrix{
+  width:100%;margin-top:24px;
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:10px;overflow:hidden;
+  font-size:11px;
+}
+.sec-row{
+  display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+.sec-row:last-child{border-bottom:none}
+.sec-row.head{background:rgba(255,255,255,0.05);font-weight:600;color:var(--gold-soft)}
+.sec-row > div{padding:8px 10px;border-right:1px solid rgba(255,255,255,0.05);text-align:center;color:rgba(255,255,255,0.85)}
+.sec-row > div:last-child{border-right:none}
+.sec-row > div:first-child{text-align:left;color:#fff}
+.ok{color:#28C840 !important}
+.no{color:#FF5F57 !important}
+
+/* ───── Timeline ───── */
+.timeline-section{
+  background:linear-gradient(180deg,var(--ivory) 0%,#FFFDF8 100%);
+}
+.tl{position:relative;padding-left:60px;max-width:780px;margin:0 auto}
+.tl::before{
+  content:"";position:absolute;left:24px;top:10px;bottom:10px;width:2px;
+  background:linear-gradient(180deg,var(--gold) 0%,var(--blue) 100%);
+}
+.tl-item{position:relative;padding-bottom:36px}
+.tl-item:last-child{padding-bottom:0}
+.tl-dot{
+  position:absolute;left:-46px;top:6px;
+  width:44px;height:44px;border-radius:50%;
+  background:#fff;border:2px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;
+  box-shadow:0 4px 12px rgba(197,165,90,0.25);
+}
+.tl-time{
+  display:inline-block;font-size:13px;color:var(--gold-deep);
+  font-weight:600;letter-spacing:1px;margin-bottom:6px;
+}
+.tl-title{font-size:17px;color:var(--night);font-weight:600;margin-bottom:6px;line-height:1.4}
+.tl-desc{font-size:14px;color:var(--ink-soft);line-height:1.75;margin-bottom:8px}
+.tl-tags{display:flex;gap:8px;flex-wrap:wrap}
+.tl-tags span{
+  font-size:11px;padding:3px 10px;border-radius:99px;
+  background:rgba(0,137,255,0.08);color:var(--blue-deep);
+}
+.tl-quote{
+  margin-top:48px;text-align:center;
+  font-size:15px;color:var(--ink-soft);font-style:italic;
+  padding:24px;border-top:1px solid var(--line);
+}
+@media(max-width:600px){.tl{padding-left:50px}.tl::before{left:16px}.tl-dot{left:-42px;width:36px;height:36px;font-size:16px}}
+
+/* ───── Steps ───── */
+.steps-section{background:#fff}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-bottom:48px}
+@media(max-width:860px){.steps{grid-template-columns:1fr}}
+.step{
+  position:relative;padding:36px 30px;
+  background:linear-gradient(180deg,#FFFDF8 0%,#fff 100%);
+  border-radius:var(--radius);
+  border:1px solid var(--line);
+  text-align:left;
+}
+.step-num{
+  position:absolute;top:-16px;left:30px;
+  font-size:48px;font-weight:700;
+  background:linear-gradient(135deg,var(--gold),var(--blue));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+  letter-spacing:-2px;line-height:1;
+}
+.step h3{font-size:18px;color:var(--night);margin:32px 0 12px;font-weight:600}
+.step p{font-size:14px;color:var(--ink-soft);line-height:1.8}
+.step-final{text-align:center;padding-top:20px}
+
+/* ───── Footer ───── */
+footer{
+  background:linear-gradient(180deg,#0D1B2A 0%,#1B2A3F 100%);
+  color:#E8D5A6;padding:64px 0 32px;
+}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px;margin-bottom:48px}
+@media(max-width:780px){.foot-grid{grid-template-columns:1fr;gap:32px}}
+.foot-brand .brand-mark{box-shadow:none}
+.foot-brand p{font-size:14px;color:rgba(232,213,166,0.65);margin-top:16px;line-height:1.85}
+.foot-col h4{font-size:14px;color:#fff;margin-bottom:18px;font-weight:600;letter-spacing:1px}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.foot-col li{font-size:13px;color:rgba(232,213,166,0.6);line-height:1.6}
+.foot-col li strong{color:var(--gold-soft);font-weight:500;margin-right:6px}
+.foot-bottom{
+  border-top:1px solid rgba(232,213,166,0.1);
+  padding-top:24px;display:flex;justify-content:space-between;
+  font-size:12px;color:rgba(232,213,166,0.4);
+  flex-wrap:wrap;gap:14px;
+}
+.foot-tag{
+  text-align:center;font-size:15px;color:var(--gold-soft);
+  padding:32px 0 12px;font-style:italic;letter-spacing:1px;
+}
+
+/* ───── Animations ───── */
+.fade-in{opacity:0;transform:translateY(24px);transition:opacity .8s ease, transform .8s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* ───── Responsive ───── */
+@media(max-width:980px){
+  .hero{padding:120px 0 60px;min-height:auto}
+  .hero-visual{aspect-ratio:16/9;height:auto;margin-top:24px}
+  .hero-stats{gap:24px}
+  .section{padding:72px 0}
+}
+@media(max-width:560px){
+  .container{padding:0 20px}
+  .hero h1{font-size:30px}
+  .hero p.lede{font-size:15px}
+  .hero-stats{flex-wrap:wrap;gap:18px}
+  .stat .n{font-size:22px}
+  .scenario{display:flex;flex-wrap:wrap;gap:40px;padding:60px 0;border-bottom:1px solid var(--line);align-items:center;}
+  .demo{min-height:auto;padding:18px}
+  .lc-grid,.kanban{grid-template-columns:1fr;height:auto}
+  .meet-grid{grid-template-columns:1fr}
+  .sec-row{grid-template-columns:1fr 1fr 1fr}
+}
+
+/* Hint badge for scenario 1 (static guide instead of CTA) */
+.hint-badge{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:12px 18px;border-radius:12px;
+  background:linear-gradient(90deg,rgba(197,165,90,0.10),rgba(0,137,255,0.06));
+  border:1px dashed rgba(197,165,90,0.35);
+  color:var(--ink);font-size:14px;line-height:1.5;
+  align-self:flex-start;max-width:100%;
+}
+.hint-badge .hint-icon{font-size:16px}
+.hint-badge strong{color:var(--gold-deep);font-weight:600;padding:0 2px}
+
+/* Demo image: contain inside container, never overflow */
+.scenario .demo-img{min-height:380px;display:flex;align-items:center;justify-content:center;background:#fff}
+.scenario .demo-img img{max-height:520px;object-fit:contain}
+
+/* Security demo (scenario 6) — give shield+matrix room */
+.scenario:last-child .demo{min-height:520px;display:flex;flex-direction:column;justify-content:center}
+.shield-vis{width:96px;height:112px;font-size:38px;flex-shrink:0}
+.sec-row > div{padding:10px 8px;font-size:11.5px}
+
+/* Word-wrap safety net for narrow columns */
+.scenario .scenario-text *{word-break:break-word;overflow-wrap:break-word}
+.scenario .feat > div:last-child{min-width:0;flex:1}
+
+/* Mobile: single column, no minmax weirdness */
+@media(max-width:980px){
+  .scenario,.scenario.reverse .scenario-text{order:2}.scenario.reverse .scenario-demo{order:1}
+  .scenario img{max-height:none}
+}
+
+/* === Scenario polish (flex-based) === */
+.hint-badge{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:12px 18px;border-radius:12px;
+  background:linear-gradient(90deg,rgba(197,165,90,0.10),rgba(0,137,255,0.06));
+  border:1px dashed rgba(197,165,90,0.35);
+  color:var(--ink);font-size:14px;line-height:1.5;
+  max-width:100%;overflow-wrap:break-word;
+}
+.hint-badge strong{color:var(--gold-deep);font-weight:600}
+.scenario .demo-img{display:block;background:#fff;overflow:hidden;border-radius:var(--radius);box-shadow:var(--shadow-lg);border:1px solid var(--line)}
+.scenario .demo-img img{max-width:100%;height:auto;display:block}
+.scenario:last-child .demo{min-height:440px;display:flex;flex-direction:column;justify-content:center}
+.shield-vis{width:96px;height:112px;font-size:38px;flex-shrink:0}
+.sec-row > div{padding:10px 8px;font-size:11.5px}
+.scenario .feat > div:last-child{min-width:0;flex:1}
+.scenario .feat{flex-wrap:wrap}
+@media(max-width:980px){
+  .scenario{flex-direction:column}
+  .scenario .scenario-text,.scenario .scenario-demo{flex:1 1 100%;max-width:100%}
+  .scenario.reverse .scenario-text{order:1}
+  .scenario.reverse .scenario-demo{order:2}
+}
+
+</style>
+</head>
+<body>
+
+<!-- ──────────── NAV ──────────── -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <div class="brand">
+      <div class="brand-mark">SL</div>
+      <div class="brand-text">
+        香格里拉 × 钉钉
+        <small>SHANGRI-LA × DINGTALK</small>
+      </div>
+    </div>
+    <div class="nav-links">
+      <a href="#values">核心价值</a>
+      <a href="#workbench">专属工作台</a>
+      <a href="#scenarios">场景应用</a>
+      <a href="#start">快速上手</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ──────────── HERO ──────────── -->
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-text fade-in">
+      <div class="hero-eyebrow">
+        <span class="dot"></span>
+        SHANGRI-LA HOSPITALITY DIGITAL PLATFORM
+      </div>
+      <h1>每一位香格里拉人，<br/>都值得更<em>顺手</em>的数字化工具</h1>
+      <p class="lede">
+        从总部到门店，从晨会到夜审——钉钉为香格里拉量身打造的智能协同平台，
+        让每一次沟通都有回响，每一项任务都有着落。
+      </p>
+      <div class="hint-badge" style="margin-top:24px;">
+          <span class="hint-icon">💡</span>
+          <span>打开钉钉 App，登录香格里拉企业账号 → 顶部切换 <strong>「专属工作台」</strong> → 按角色自动加载对应入口</span>
+        </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="n">100+</div>
+          <div class="l">全球酒店</div>
+        </div>
+        <div class="stat">
+          <div class="n">20万+</div>
+          <div class="l">酒店使用</div>
+        </div>
+        <div class="stat">
+          <div class="n">140种</div>
+          <div class="l">支持语言</div>
+        </div>
+        <div class="stat">
+          <div class="n">7×24</div>
+          <div class="l">在线支持</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual fade-in">
+      <div class="hero-cover">
+        <img src="assets/img-00-60f4a32863.png" alt="香格里拉酒店 × 钉钉数字化协同" width="800" height="462" />
+        <div class="hero-cover-glow"></div>
+        <div class="hero-cover-badge">
+          <span class="dot"></span>
+          香格里拉 · 数字化伙伴
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ──────────── VALUES ──────────── -->
+<section class="section" id="values">
+  <div class="container">
+    <div class="section-head center fade-in">
+      <span class="section-eyebrow">CORE VALUES · 四大核心价值</span>
+      <h2>为香格里拉 深度定制</h2>
+      <p class="sub">
+        我们没有把通用工具简单堆砌给你——每一个功能，都来自和上百家酒店伙伴一起打磨的真实场景。
+      </p>
+    </div>
+    <div class="value-grid">
+      <div class="value-card fade-in">
+        <div class="value-icon">📡</div>
+        <h3>穿透式协同<br/>指令秒达一线</h3>
+        <p>总部通知不再层层衰减，DING消息直达每位当班员工，已读未读一目了然。</p>
+        <div class="value-role">区域总监 → 门店店长 → 前台接待</div>
+      </div>
+      <div class="value-card fade-in">
+        <div class="value-icon">📚</div>
+        <h3>知识不随人走<br/>经验永远在线</h3>
+        <p>SOP、服务案例、品牌手册沉淀在云端知识库，新员工扫码即学，老员工随时查阅。</p>
+        <div class="value-role">HR培训专员 / 新员工入职</div>
+      </div>
+      <div class="value-card fade-in">
+        <div class="value-icon">🌐</div>
+        <h3>AI助手随身<br/>多语言无障碍</h3>
+        <p>跨国会议实时翻译、会议纪要自动生成、宾客问题AI秒回——让语言不再是服务的边界。</p>
+        <div class="value-role">外籍经理 / 国际宾客接待</div>
+      </div>
+      <div class="value-card fade-in">
+        <div class="value-icon">🧩</div>
+        <h3>业务系统一站式<br/>告别反复切换</h3>
+        <p>PMS查房态、CRM看会员、OA提审批——一个App搞定所有，移动端也能轻松处理。</p>
+        <div class="value-role">前厅部 / 客房部 / 财务部</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ──────────── WORKBENCHES (千人千面工作台) ──────────── -->
+<style>
+.wb-section{background:linear-gradient(180deg,#0d1b2a 0%,#13243a 100%);color:#f5efe6;padding:96px 0 120px;}
+.wb-section .section-eyebrow{color:#C9A962;letter-spacing:.18em;font-size:13px;font-weight:600;}
+.wb-section h2{color:#f5efe6;font-size:40px;line-height:1.25;margin:14px 0 14px;font-weight:700;}
+.wb-section .sub{color:#a8b3c2;font-size:16px;line-height:1.7;max-width:760px;margin:0 auto;}
+.wb-tabs{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:48px 0 36px;}
+.wb-tab{padding:14px 26px;border:1px solid rgba(201,169,98,0.35);background:rgba(255,255,255,0.04);color:#f5efe6;border-radius:999px;font-size:15px;cursor:pointer;transition:all .25s;font-weight:500;letter-spacing:.5px;}
+.wb-tab .wb-tab-mini{display:block;font-size:11px;color:#C9A962;letter-spacing:.15em;margin-top:2px;font-weight:400;}
+.wb-tab:hover{background:rgba(201,169,98,0.15);transform:translateY(-1px);}
+.wb-tab.active{background:linear-gradient(135deg,#C9A962 0%,#b8964a 100%);color:#0d1b2a;border-color:#C9A962;box-shadow:0 8px 20px -6px rgba(201,169,98,0.5);}
+.wb-tab.active .wb-tab-mini{color:rgba(13,27,42,0.7);}
+.wb-panel{display:none;animation:wbFade .45s ease;}
+.wb-panel.active{display:block;}
+@keyframes wbFade{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+.wb-role-bar{display:flex;flex-wrap:wrap;align-items:center;gap:24px;padding:20px 28px;background:rgba(201,169,98,0.08);border:1px solid rgba(201,169,98,0.2);border-radius:14px;margin-bottom:28px;}
+.wb-role-label{font-size:12px;letter-spacing:.18em;color:#C9A962;font-weight:600;}
+.wb-role-name{font-size:18px;color:#f5efe6;font-weight:600;}
+.wb-role-desc{flex:1;min-width:260px;color:#a8b3c2;font-size:14px;line-height:1.6;}
+.wb-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:32px;align-items:start;}
+.wb-screenshot-wrap{position:relative;border-radius:14px;overflow:hidden;border:1px solid rgba(201,169,98,0.25);box-shadow:0 18px 50px -16px rgba(0,0,0,0.6);}
+.wb-screenshot-wrap img{display:block;width:100%;height:auto;}
+.wb-screenshot-tag{position:absolute;top:14px;left:14px;background:rgba(13,27,42,0.78);color:#C9A962;font-size:12px;letter-spacing:.12em;padding:6px 14px;border-radius:999px;backdrop-filter:blur(6px);font-weight:600;}
+.wb-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:22px 24px;margin-bottom:16px;}
+.wb-card-head{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:600;color:#C9A962;margin-bottom:14px;letter-spacing:.5px;}
+.wb-card-head .wb-platform{background:rgba(201,169,98,0.15);color:#C9A962;font-size:11px;padding:3px 10px;border-radius:999px;letter-spacing:.1em;}
+.wb-feat-list{display:flex;flex-direction:column;gap:12px;}
+.wb-feat{display:flex;gap:12px;align-items:flex-start;}
+.wb-feat-ico{flex-shrink:0;width:34px;height:34px;border-radius:8px;background:rgba(201,169,98,0.14);display:flex;align-items:center;justify-content:center;color:#C9A962;font-size:16px;}
+.wb-feat-body{flex:1;min-width:0;color:#d6dce6;font-size:14px;line-height:1.6;}
+.wb-feat-body strong{display:block;color:#f5efe6;font-size:14.5px;margin-bottom:2px;font-weight:600;}
+.wb-mobile-row{display:grid;grid-template-columns:160px minmax(0,1fr);gap:20px;align-items:start;}
+.wb-mobile-frame{position:relative;background:#1a1a1a;border-radius:24px;padding:6px;box-shadow:0 12px 28px -10px rgba(0,0,0,0.7);}
+.wb-mobile-frame::before{content:"";position:absolute;top:9px;left:50%;transform:translateX(-50%);width:48px;height:4px;background:#333;border-radius:3px;z-index:2;}
+.wb-mobile-inner{background:linear-gradient(180deg,#fff 0%,#f6f1e8 100%);border-radius:18px;padding:24px 12px 16px;text-align:center;color:#0d1b2a;}
+.wb-mobile-inner .wb-m-eyebrow{font-size:9px;letter-spacing:.18em;color:#C9A962;font-weight:600;margin-bottom:8px;}
+.wb-mobile-inner .wb-m-title{font-size:14px;font-weight:600;color:#0d1b2a;line-height:1.3;}
+.wb-mobile-inner .wb-m-apps{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:12px;}
+.wb-mobile-inner .wb-m-app{aspect-ratio:1;background:#fff;border:1px solid rgba(13,27,42,0.06);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:10px;color:#0d1b2a;line-height:1.1;padding:4px;}
+.wb-mobile-inner .wb-m-app span{font-size:9px;}
+.wb-cta{display:inline-flex;align-items:center;gap:8px;margin-top:24px;padding:14px 28px;background:#C9A962;color:#0d1b2a;border-radius:999px;font-weight:600;font-size:15px;text-decoration:none;transition:transform .2s;}
+.wb-cta:hover{transform:translateY(-2px);}
+.wb-summary-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:48px;}
+.wb-summary-card{padding:22px;border:1px solid rgba(201,169,98,0.2);border-radius:14px;background:rgba(255,255,255,0.03);text-align:center;}
+.wb-summary-card .n{font-size:30px;font-weight:700;color:#C9A962;line-height:1;}
+.wb-summary-card .l{font-size:13px;color:#a8b3c2;margin-top:8px;line-height:1.5;}
+@media (max-width:880px){
+  .wb-grid{grid-template-columns:1fr;}
+  .wb-summary-row{grid-template-columns:repeat(2,1fr);}
+  .wb-mobile-row{grid-template-columns:1fr;}
+  .wb-mobile-frame{max-width:200px;margin:0 auto;}
+}
+</style>
+
+<section class="section wb-section" id="workbench">
+  <div class="container">
+    <div class="section-head center fade-in">
+      <span class="section-eyebrow">ROLE-BASED WORKBENCH · 四大专属工作台</span>
+      <h2>不同角色，不同工作台</h2>
+      <p class="sub">运营、人事、IT、通用——每一个角色登录钉钉，看到的都是为自己而设计的工作台入口。一屏聚合管理视角与高频应用，让对的人在对的位置做对的事。</p>
+    </div>
+
+    <div class="wb-tabs" role="tablist">
+      <button class="wb-tab active" data-tab="yunying">香格里拉运营工作台<span class="wb-tab-mini">OPERATIONS</span></button>
+      <button class="wb-tab" data-tab="renshi">香格里拉人事工作台<span class="wb-tab-mini">HR</span></button>
+      <button class="wb-tab" data-tab="it">香格里拉IT工作台<span class="wb-tab-mini">IT</span></button>
+      <button class="wb-tab" data-tab="tongyong">通用工作台<span class="wb-tab-mini">UNIVERSAL</span></button>
+    </div>
+
+    <!-- ============== 运营 ============== -->
+    <div class="wb-panel active" data-panel="yunying">
+      <div class="wb-role-bar">
+        <div>
+          <div class="wb-role-label">WHO USES IT · 适用角色</div>
+          <div class="wb-role-name">区域总经理 · 门店总经理 · 运营总监 · 督导团队</div>
+        </div>
+        <div class="wb-role-desc">一屏看完今天该看的：6 个最常用的工具、今天有什么会、集团知识库、各家门店在搞什么活动。</div>
+      </div>
+
+      <div class="wb-grid">
+        <div class="wb-screenshot-wrap">
+          <span class="wb-screenshot-tag">PC · 香格里拉运营工作台</span>
+          <img src="assets/img-01-d630183586.jpg" alt="运营工作台 PC 截图"/>
+        </div>
+        <div>
+          <div class="wb-card">
+            <div class="wb-card-head">🖥️ 5 大模块概览 <span class="wb-platform">PC</span></div>
+            <div class="wb-feat-list">
+              <div class="wb-feat"><div class="wb-feat-ico">🛏️</div><div class="wb-feat-body"><strong>主 Banner｜让您在旅途中感受家的温馨与舒适</strong>全集团门店统一的品牌氛围墙。</div></div>
+              <div class="wb-feat"><div class="wb-feat-ico">🧮</div><div class="wb-feat-body"><strong>门店效率 · 6 个应用</strong>最常用的 6 个工具点开就用。</div></div>
+              <div class="wb-feat"><div class="wb-feat-ico">🗓️</div><div class="wb-feat-body"><strong>会议日程</strong>今天有什么会一眼看完。</div></div>
+              <div class="wb-feat"><div class="wb-feat-ico">📂</div><div class="wb-feat-body"><strong>酒店知识库</strong>集团 SOP、应急预案统一存放，门店随时查。</div></div>
+              <div class="wb-feat"><div class="wb-feat-ico">📣</div><div class="wb-feat-body"><strong>热门活动 & 下属酒店</strong>各家在搞什么活动同屏可见。</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============== 人事 ============== -->
+    <div class="wb-panel" data-panel="renshi">
+      <div class="wb-role-bar">
+        <div>
+          <div class="wb-role-label">WHO USES IT · 适用角色</div>
+          <div class="wb-role-name">集团 HR · HRBP · 培训官 · 招聘经理 · 全体在职员工（自助场景）</div>
+        </div>
+        <div class="wb-role-desc">招聘、入职、培训、调岗、离职……员工从进门到走人的事，全在这一屏。</div>
+      </div>
+
+      <div class="wb-grid">
+        <div class="wb-screenshot-wrap">
+          <span class="wb-screenshot-tag">PC · 香格里拉人事工作台</span>
+          <img src="assets/img-02-a47b369e3c.jpg" alt="人事工作台 PC 截图"/>
+        </div>
+        <div>
+          <div class="wb-card">
+            <div class="wb-card-head">🖥️ 5 大模块概览 <span class="wb-platform">PC</span></div>
+            <div class="wb-feat-list">
+              <div class="wb-feat"><div class="wb-feat-ico">🏔️</div><div class="wb-feat-body"><strong>HR DASHBOARD 主 Banner</strong>三个大入口直达：人才发展 / 绩效 / 福利。</div></div>
+              <div class="wb-feat"><div class="wb-feat-ico">📢</div><div class="wb-feat-body"><strong>顶部公告条</strong>新政策、新流程全员第一眼看到。</div></div>
+              <div class="wb-feat"><div class="wb-feat-ico">🧰</div><div class="wb-feat-body"><strong>人事应用 · 16 个</strong>员工从入职到离职，每一步都有按钮。</div></div>
+              <div class="wb-feat"><div class="wb-feat-ico">🗓️</div><div class="wb-feat-body"><strong>会议日程</strong>跨部门会议、培训安排不会漏。</div></div>
+              <div class="wb-feat"><div class="wb-feat-ico">📈</div><div class="wb-feat-body"><strong>门店效率</strong>人房比、流失率、培训完成度一并看。</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============== IT ============== -->
+    <div class="wb-panel" data-panel="it">
+      <div class="wb-role-bar">
+        <div>
+          <div class="wb-role-label">WHO USES IT · 适用角色</div>
+          <div class="wb-role-name">IT 支持工程师 · IT 经理 · 项目经理 · IT 资产管理员 · 报修员工</div>
+        </div>
+        <div class="wb-role-desc">工单、申请、资产、项目、知识——IT 团队该做的事，一屏管完。</div>
+      </div>
+
+      <div class="wb-grid">
+        <div class="wb-screenshot-wrap">
+          <span class="wb-screenshot-tag">PC · 香格里拉IT工作台</span>
+          <img src="assets/img-03-cca1f9ffb7.jpg" alt="IT工作台 PC 截图"/>
+        </div>
+        <div>
+          <div class="wb-card">
+            <div class="wb-card-head">🖥️ 5 大模块概览 <span class="wb-platform">PC</span></div>
+            <div class="wb-feat-list">
+              <div class="wb-feat"><div class="wb-feat-ico">🌐</div><div class="wb-feat-body"><strong>企业文化 Banner｜引领未来，成就梦想</strong>IT 团队自己的氛围墙。</div></div>
+              <div class="wb-feat"><div class="wb-feat-ico">📑</div><div class="wb-feat-body"><strong>专栏 Banner</strong>月度技术专题、内部分享回顾。</div></div>
+              <div class="wb-feat"><div class="wb-feat-ico">🧰</div><div class="wb-feat-body"><strong>应用中心 · 9 个应用</strong>故障 / 申请 / 项目 / 资产 / 知识，5 件事全在这。</div></div>
+              <div class="wb-feat"><div class="wb-feat-ico">📰</div><div class="wb-feat-body"><strong>科技热点</strong>行业资讯一屏跟进。</div></div>
+              <div class="wb-feat"><div class="wb-feat-ico">📔</div><div class="wb-feat-body"><strong>内部日志</strong>工单复盘、项目周报每天往里写。</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============== 通用 ============== -->
+    <div class="wb-panel" data-panel="tongyong">
+      <div class="wb-role-bar">
+        <div>
+          <div class="wb-role-label">WHO USES IT · 适用角色</div>
+          <div class="wb-role-name">全员 · 总部职能 · 跨部门协作伙伴 · 兜底入口</div>
+        </div>
+        <div class="wb-role-desc">不分岗位，每个香格里拉员工的"家门口"——文化、日志、最高频的应用都在这。</div>
+      </div>
+
+      <div class="wb-grid">
+        <div class="wb-screenshot-wrap">
+          <span class="wb-screenshot-tag">PC · 通用工作台</span>
+          <img src="assets/img-04-83da7a370f.jpg" alt="通用工作台 PC 截图"/>
+        </div>
+        <div>
+          <div class="wb-card">
+            <div class="wb-card-head">🖥️ 4 大模块概览 <span class="wb-platform">PC</span></div>
+            <div class="wb-feat-list">
+              <div class="wb-feat"><div class="wb-feat-ico">🕊️</div><div class="wb-feat-body"><strong>主 Banner｜翩翩燕来，燕子归来才是春</strong>水墨山水主视觉，员工天天看到的品牌氛围。</div></div>
+              <div class="wb-feat"><div class="wb-feat-ico">📰</div><div class="wb-feat-body"><strong>文化资讯</strong>集团文旅板块同步推送。</div></div>
+              <div class="wb-feat"><div class="wb-feat-ico">📓</div><div class="wb-feat-body"><strong>日志模块</strong>一键写日志，自动归到主管。</div></div>
+              <div class="wb-feat"><div class="wb-feat-ico">🧩</div><div class="wb-feat-body"><strong>全员常用 · 14 个应用</strong>天天用的全摆首屏，可自定义顺序。</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wb-summary-row">
+      <div class="wb-summary-card"><div class="n">4</div><div class="l">专属工作台<br/>覆盖全角色</div></div>
+      <div class="wb-summary-card"><div class="n">1 屏</div><div class="l">PC 工作台<br/>角色信息聚合</div></div>
+      <div class="wb-summary-card"><div class="n">50+</div><div class="l">应用一站聚合<br/>统一入口</div></div>
+      <div class="wb-summary-card"><div class="n">0 培训</div><div class="l">扫码即用<br/>角色自动匹配</div></div>
+    </div>
+
+    <div style="text-align:center;margin-top:32px;">
+      <div class="hint-badge" style="display:inline-flex;">
+        <span class="hint-icon">💡</span>
+        <span>钉钉首页 → 切换到 <strong>「专属工作台」</strong> → 选择 <strong>运营 / 人事 / IT / 通用</strong> 标签页查看对应工作台</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var tabs=document.querySelectorAll('.wb-tab');
+  var panels=document.querySelectorAll('.wb-panel');
+  tabs.forEach(function(t){
+    t.addEventListener('click',function(){
+      var k=t.getAttribute('data-tab');
+      tabs.forEach(function(x){x.classList.toggle('active',x===t);});
+      panels.forEach(function(p){p.classList.toggle('active',p.getAttribute('data-panel')===k);});
+    });
+  });
+})();
+</script>
+
+<!-- ──────────── SCENARIOS ──────────── -->
+<section class="section scenarios" id="scenarios">
+  <div class="container">
+    <div class="section-head center fade-in">
+      <span class="section-eyebrow">SIX SCENARIOS · 六大场景深度展示</span>
+      <h2>这就是你每天要做的事</h2>
+      <p class="sub">每一个场景，都来自真实酒店一线。看看钉钉如何让这些环节，比从前轻松一点。</p>
+    </div>
+
+    <!-- Scenario 1: 多语言视频会议 -->
+    <div class="scenario">
+      <div class="scenario-text">
+        <div class="scenario-no"><div class="num">1</div>SCENE 01 · 多语言视频会议</div>
+        <h3>跨国晨会，再也不用担心听不懂</h3>
+        <div class="pain">每周的区域经营分析会，外籍总经理说英文，本地团队讲中文，会议纪要总要花两小时整理……</div>
+        <div class="feat-list">
+          <div class="feat"><div class="ico">🎙️</div><div><strong>同声传译</strong>支持中英日韩等多语种实时字幕，参会者各看各的语言</div></div>
+          <div class="feat"><div class="ico">📝</div><div><strong>AI听记</strong>会后自动生成结构化纪要，待办事项一键分配到人</div></div>
+          <div class="feat"><div class="ico">🌍</div><div><strong>跨时区智能排期</strong>自动推荐北京、东京、新加坡三地都方便的会议时间</div></div>
+          <div class="feat"><div class="ico">📱</div><div><strong>多端无缝切换</strong>手机上接起会议，到办公室无缝切到电脑，不掉线</div></div>
+        </div>
+        <div class="hint-badge">
+          <span class="hint-icon">💡</span>
+          <span>钉钉首页点击 <strong>「+」</strong> → <strong>视频会议</strong></span>
+        </div>
+      </div>
+      <div class="scenario-demo">
+        <div class="demo-img">
+          <span class="demo-tag">LIVE · 多语言会议</span>
+          <img src="assets/img-05-d879e3b524.png" alt="钉钉跨国视频会议界面 · 多语言实时字幕" width="800" height="353" />
+          <span class="demo-caption">钉钉视频会议 · 实时翻译与AI听记</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Scenario 2: 在线知识库协作 -->
+    <div class="scenario reverse">
+      <div class="scenario-text">
+        <div class="scenario-no"><div class="num">2</div>SCENE 02 · 在线知识库协作</div>
+        <h3>SOP更新一次，全集团同步到位</h3>
+        <div class="pain">新版入住流程改了三个月，还有门店在用旧版；老师傅离职了，他脑子里的经验也跟着走了……</div>
+        <div class="feat-list">
+          <div class="feat"><div class="ico">📚</div><div><strong>分权限知识库</strong>集团标准、区域细则、门店自定义三层架构，权限隔离清晰</div></div>
+          <div class="feat"><div class="ico">✏️</div><div><strong>多人实时协作</strong>运营部和培训部同时修订 SOP，修改痕迹清晰可追溯</div></div>
+          <div class="feat"><div class="ico">🔍</div><div><strong>AI智能检索</strong>输入"客人投诉房间温度"，秒级匹配 SOP、案例与处理模板</div></div>
+          <div class="feat"><div class="ico">📲</div><div><strong>移动端随时查阅</strong>客房服务员在楼层就能查到最新清洁标准，不必跑回办公室</div></div>
+        </div>
+        <a href="https://alidocs.dingtalk.com/i/spaces/lPDmrxQoenxD3zxd/overview" target="_blank" rel="noopener" class="scenario-cta">浏览香格里拉知识库 →</a>
+      </div>
+      <div class="scenario-demo">
+        <a href="https://alidocs.dingtalk.com/i/spaces/lPDmrxQoenxD3zxd/overview" target="_blank" rel="noopener" style="display:block">        <div class="demo-img">
+          <span class="demo-tag">运营助理 · 知识库智能问答</span>
+          <img src="assets/img-06-25c7d4e931.jpg" alt="SOP更新一次全集团同步到位" width="800" height="420" />
+          <span class="demo-caption">点击进入香格里拉知识库 →</span>
+        </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Scenario 3: AI 搜问 -->
+    <div class="scenario">
+      <div class="scenario-text">
+        <div class="scenario-no"><div class="num">3</div>SCENE 03 · AI 搜问</div>
+        <h3>不懂就问AI，比问同事还快</h3>
+        <div class="pain">新来的前台小妹半夜值班，遇到特殊房型升级不知道怎么操作，打电话问主管又怕打扰……</div>
+        <div class="feat-list">
+          <div class="feat"><div class="ico">🤖</div><div><strong>企业专属AI助理</strong>基于香格里拉内部制度、SOP、历史工单训练，回答精准合规</div></div>
+          <div class="feat"><div class="ico">💬</div><div><strong>自然语言提问</strong>直接说"豪华海景房能不能给会员免费升套房"，AI给出政策依据</div></div>
+          <div class="feat"><div class="ico">📊</div><div><strong>数据洞察一句话查</strong>管理层问"上周杭州三家店 RevPAR 对比"，AI 直接出图表</div></div>
+          <div class="feat"><div class="ico">🔒</div><div><strong>数据安全兜底</strong>问答记录可审计，敏感信息自动脱敏，绝不泄露宾客隐私</div></div>
+        </div>
+        <a href="https://deap-agent.dingtalk.com/h5/index.html?publish_h5=1&code=cfee1cc9-f77e-4687-917e-daf2afd111a0" target="_blank" rel="noopener" class="scenario-cta">和AI助理聊一句 →</a>
+      </div>
+      <div class="scenario-demo">
+        <a href="https://deap-agent.dingtalk.com/h5/index.html?publish_h5=1&code=cfee1cc9-f77e-4687-917e-daf2afd111a0" target="_blank" rel="noopener" style="display:block">        <div class="demo-img">
+          <span class="demo-tag">AI 助理 · 企业专属问答</span>
+          <img src="assets/img-07-507359ae85.jpg" alt="香格里拉AI助理对话界面" width="800" height="503" />
+          <span class="demo-caption">点击与AI助理对话 →</span>
+        </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Scenario 4: 安全合规与分级管控 -->
+    <div class="scenario reverse">
+      <div class="scenario-text">
+        <div class="scenario-no"><div class="num">4</div>SCENE 04 · 安全合规与分级管控</div>
+        <h3>数据安全是底线，我们比你更在意</h3>
+        <div class="pain">宾客个人信息、经营数据、薪酬明细……酒店行业的数据敏感度极高，一旦泄露后果不堪设想……</div>
+        <div class="feat-list">
+          <div class="feat"><div class="ico">🔐</div><div><strong>分级权限体系</strong>按组织、角色、密级三维控制，实习生看不到薪酬，外包碰不到宾客数据</div></div>
+          <div class="feat"><div class="ico">🛡️</div><div><strong>水印+防截屏+防转发</strong>敏感文档自动加水印，截屏告警，离职账号一键回收</div></div>
+          <div class="feat"><div class="ico">📋</div><div><strong>完整审计日志</strong>谁在何时查看/下载/分享了什么，全程留痕可追溯</div></div>
+          <div class="feat"><div class="ico">🌐</div><div><strong>全球化合规部署</strong>支持中国大陆及海外多区域数据驻留，满足 GDPR、PIPL 合规</div></div>
+        </div>
+        <a href="https://n.dingtalk.com/dingding/exclusive_experience_center/exclusive/index.html?spm=a1z24xqo.28951935.0.0.315e2da3ul85CJ&channel=guanwang_trial" target="_blank" rel="noopener" class="scenario-cta">了解安全管控详情 →</a>
+      </div>
+      <div class="scenario-demo">
+        <div class="demo">
+          <div class="demo-bar">
+            <div class="d r"></div><div class="d y"></div><div class="d g"></div>
+            <div class="title">数据安全控制中心 · 权限矩阵</div>
+          </div>
+          <div class="sec-shield">
+            <div class="shield-vis">🛡️</div>
+            <div class="sec-matrix">
+              <div class="sec-row head">
+                <div>角色 / 数据等级</div><div>公开</div><div>内部</div><div>机密</div>
+              </div>
+              <div class="sec-row">
+                <div>实习员工</div><div class="ok">✓</div><div class="no">✕</div><div class="no">✕</div>
+              </div>
+              <div class="sec-row">
+                <div>部门主管</div><div class="ok">✓</div><div class="ok">✓</div><div class="no">✕</div>
+              </div>
+              <div class="sec-row">
+                <div>总经理</div><div class="ok">✓</div><div class="ok">✓</div><div class="ok">✓</div>
+              </div>
+              <div class="sec-row">
+                <div>外部合作方</div><div class="ok">✓</div><div class="no">✕</div><div class="no">✕</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scenario 5: AI 表格 · 项目管理 -->
+    <div class="scenario">
+      <div class="scenario-text">
+        <div class="scenario-no"><div class="num">5</div>SCENE 05 · AI 表格 · 项目管理</div>
+        <h3>新店筹备、重大接待，进度一眼看清</h3>
+        <div class="pain">新店开业筹备涉及工程、采购、招聘、培训四条线，Excel表格传来传去版本混乱，周会上才发现关键节点delay了……</div>
+        <div class="feat-list">
+          <div class="feat"><div class="ico">🤖</div><div><strong>AI 自动建表</strong>一句话描述需求，AI 智能生成字段、关联与视图，5 分钟搭起一张专业项目表</div></div>
+          <div class="feat"><div class="ico">📋</div><div><strong>多视图自由切换</strong>同一份数据，甘特图看进度、看板看状态、表格看明细，无需重复维护</div></div>
+          <div class="feat"><div class="ico">🔔</div><div><strong>智能提醒到人</strong>每项任务绑定责任人，AI 自动判断风险节点，逾期前 DING 主动提醒</div></div>
+          <div class="feat"><div class="ico">📊</div><div><strong>AI 进度洞察</strong>问一句"本周风险项有哪些"，AI 直接生成风险列表+原因分析+处理建议</div></div>
+        </div>
+        <a href="https://alidocs.dingtalk.com/i/nodes/LeBq413JAw4D2qaATrGAKyogWDOnGvpb?utm_scene=person_space" target="_blank" rel="noopener" class="scenario-cta">创建一个项目看板 →</a>
+      </div>
+      <div class="scenario-demo">
+        <a href="https://alidocs.dingtalk.com/i/nodes/LeBq413JAw4D2qaATrGAKyogWDOnGvpb?utm_scene=person_space" target="_blank" rel="noopener" style="display:block">        <div class="demo-img">
+          <span class="demo-tag">AI 表格 · 新店筹备项目</span>
+          <img src="assets/img-08-bba818f0d1.png" alt="AI 表格 - 新店筹备项目管理界面" width="800" height="370" />
+          <span class="demo-caption">点击进入 AI 表格 →</span>
+        </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Scenario 6: 低代码搭建 -->
+    <div class="scenario reverse">
+      <div class="scenario-text">
+        <div class="scenario-no"><div class="num">6</div>SCENE 06 · 低代码搭建</div>
+        <h3>不用写代码，业务需求自己搞定</h3>
+        <div class="pain">想做一个宾客满意度收集表，找IT排期要等两周；旺季临时加个物资申领流程，审批链还没配好旺季就过了……</div>
+        <div class="feat-list">
+          <div class="feat"><div class="ico">🧩</div><div><strong>拖拽式表单</strong>勾选字段、设置逻辑、发布上线，30 分钟搞定一张专业表单</div></div>
+          <div class="feat"><div class="ico">🔄</div><div><strong>审批流灵活配置</strong>采购→部门→财务→GM，节点条件随时调整，不用改代码</div></div>
+          <div class="feat"><div class="ico">📈</div><div><strong>数据自动汇总</strong>填报数据实时生成看板，管理层打开手机就能看到最新统计</div></div>
+          <div class="feat"><div class="ico">🏨</div><div><strong>酒店专属模板库</strong>入住登记、客诉处理、工程报修、物资盘点等 20+ 模板开箱即用</div></div>
+        </div>
+        <a href="https://www.aliwork.com/" target="_blank" rel="noopener" class="scenario-cta">试试搭一张表单 →</a>
+      </div>
+      <div class="scenario-demo">
+        <a href="https://www.aliwork.com/" target="_blank" rel="noopener" style="display:block">        <div class="demo-img">
+          <span class="demo-tag">宜搭 · 酒店行业模板库</span>
+          <img src="assets/img-09-84f863432d.png" alt="宜搭低代码模板 - 酒店行业应用" width="800" height="530" />
+          <span class="demo-caption">点击进入宜搭搭建 →</span>
+        </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+<!-- ──────────── STEPS ──────────── -->
+<section class="section steps-section" id="start">
+  <div class="container">
+    <div class="section-head center fade-in">
+      <span class="section-eyebrow">GET STARTED · 快速上手</span>
+      <h2>三步开启你的数字化工作新方式</h2>
+      <p class="sub">不用培训手册，不用 IT 支持——你需要的，是几分钟和一颗探索的心。</p>
+    </div>
+    <div class="steps">
+      <div class="step fade-in">
+        <div class="step-num">01</div>
+        <h3>扫码登录，专属工作台已就绪</h3>
+        <p>打开钉钉扫描企业二维码，登录后自动进入香格里拉专属工作台，常用应用已在首页就位。</p>
+      </div>
+      <div class="step fade-in">
+        <div class="step-num">02</div>
+        <h3>跟着引导完成任务，边做边学</h3>
+        <p>每个功能模块内置交互式新手引导，点击"试一试"即可在真实环境中练习，不怕出错。</p>
+      </div>
+      <div class="step fade-in">
+        <div class="step-num">03</div>
+        <h3>遇到问题随时问，AI+人工双保障</h3>
+        <p>对话框输入问题，AI 秒回；复杂问题一键转接专属客服，7×24 小时在线，绝不让你卡壳。</p>
+      </div>
+    </div>
+    <div class="step-final fade-in">
+      <div class="hint-badge" style="display:inline-flex;">
+        <span class="hint-icon">💡</span>
+        <span>打开钉钉 App → 搜索 <strong>「香格里拉」</strong> → 加入企业 → 顶部切换 <strong>「专属工作台」</strong></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ──────────── FOOTER ──────────── -->
+<footer>
+  <div class="container">
+    <div class="foot-tag">让科技服务于人，让温暖传递于每一位香格里拉人。</div>
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="brand">
+          <div class="brand-mark">SL</div>
+          <div class="brand-text" style="color:#fff">
+            香格里拉 × 钉钉
+            <small style="color:rgba(232,213,166,0.5)">SHANGRI-LA × DINGTALK</small>
+          </div>
+        </div>
+        <p>专为香格里拉酒店集团量身打造的数字化协同平台——融合钉钉企业级协同能力与酒店行业深度场景，让每一位伙伴都能轻松上手。</p>
+      </div>
+      <div class="foot-col">
+        <h4>专属支持</h4>
+        <ul>
+          <li><strong>项目经理</strong>宇汐 / Yuxi</li>
+          <li><strong>电话</strong>+86 13474535530</li>
+          <li><strong>邮箱</strong>lyx464463@alibaba-inc.com</li>
+          <li><strong>支持时间</strong>7×24 小时在线</li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>了解更多</h4>
+        <ul>
+          <li>用户手册</li>
+          <li>新员工入门视频</li>
+          <li>常见问题 FAQ</li>
+          <li>隐私政策与合规说明</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div>© 2026 Shangri-La Hotels & Resorts × DingTalk. All rights reserved.</div>
+      <div>隐私政策 · 服务条款 · 数据合规</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Scroll-triggered fade-in animation
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const id = a.getAttribute('href');
+    if (id.length > 1) {
+      const t = document.querySelector(id);
+      if (t) {
+        e.preventDefault();
+        const top = t.getBoundingClientRect().top + window.pageYOffset - 70;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    }
+  });
+});
+</script>
+
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('./sw.js')
+      .then(function(reg) { console.log('SW registered:', reg.scope); })
+      .catch(function(err) { console.warn('SW registration failed:', err); });
+  });
+}
+</script>
+
+</body>
+</html>
