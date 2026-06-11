@@ -1049,10 +1049,129 @@ footer{
       <p class="sub">每一个场景，都来自真实酒店一线。看看钉钉如何让这些环节，比从前轻松一点。</p>
     </div>
 
+    
+    
+<style>
+.lx-carousel{position:relative;overflow:hidden;border-radius:14px}
+.lx-track{display:flex;transition:transform .5s ease}
+.lx-slide{min-width:100%;flex-shrink:0}
+.lx-slide img{width:100%;border-radius:14px;display:block}
+.lx-dots{display:flex;justify-content:center;gap:8px;margin-top:10px}
+.lx-dot{width:8px;height:8px;border-radius:50%;background:rgba(197,165,90,0.35);cursor:pointer;transition:background .3s}
+.lx-dot.active{background:var(--gold)}
+.lx-arrow{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.85);border:none;border-radius:50%;width:32px;height:32px;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.15);z-index:2}
+.lx-arrow.prev{left:8px}.lx-arrow.next{right:8px}
+</style>
+
+    <!-- Scenario NEW-01: AI陪练 -->
+    <div class="scenario">
+      <div class="scenario-text">
+        <div class="scenario-no"><div class="num">1</div>SCENE 01 · AI 陪练</div>
+        <h3>每一次对话，都是一次成长</h3>
+        <div class="pain">新员工入职后，靠老带新效率低、标准不一；旺季前突击培训，学完就忘，服务质量难以保证……</div>
+        <div class="feat-list">
+          <div class="feat"><div class="ico">🤖</div><div><strong>交互式情景模拟</strong>AI 扮演真实宾客，模拟入住投诉、升房请求、餐饮预订等高频场景，员工在对话中反复练习</div></div>
+          <div class="feat"><div class="ico">⏱️</div><div><strong>缩短培训周期</strong>传统 3 周上岗压缩至 1 周，新员工快速掌握服务标准，旺季前批量就绪</div></div>
+          <div class="feat"><div class="ico">📊</div><div><strong>效果量化分析</strong>每次陪练自动生成得分报告，标注语言规范度、情绪管控、响应速度等维度，管理者一键查看全员进度</div></div>
+          <div class="feat"><div class="ico">🏆</div><div><strong>个性化学习路径</strong>根据员工薄弱项自动推送针对性练习，持续提升，而非一刀切</div></div>
+        </div>
+        <div class="hint-badge">
+          <span class="hint-icon">💡</span>
+          <span>工作台 → <strong>「AI 陪练」</strong> → 选择场景 → 开始对话练习</span>
+        </div>
+      </div>
+      <div class="scenario-demo">
+        <div class="demo-img">
+          <span class="demo-tag">LIVE · AI 陪练</span>
+          
+<div class="lx-carousel" id="lxCarousel">
+  <div class="lx-track" id="lxTrack">
+    <div class="lx-slide"><img src="assets/img-05-e040b54f5c.jpg" alt="AI陪练界面1" /></div>
+    <div class="lx-slide"><img src="assets/img-05-e040b54f5c.jpg" alt="AI陪练界面2" /></div>
+  </div>
+  <button class="lx-arrow prev" onclick="lxMove(-1)">&#8249;</button>
+  <button class="lx-arrow next" onclick="lxMove(1)">&#8250;</button>
+  <div class="lx-dots">
+    <div class="lx-dot active" id="lxDot0" onclick="lxGo(0)"></div>
+    <div class="lx-dot" id="lxDot1" onclick="lxGo(1)"></div>
+  </div>
+</div>
+<script>
+(function(){
+  var cur=0,total=2;
+  window.lxMove=function(d){lxGo((cur+d+total)%total);};
+  window.lxGo=function(n){
+    cur=n;
+    document.getElementById('lxTrack').style.transform='translateX(-'+cur*100+'%)';
+    for(var i=0;i<total;i++){
+      var el=document.getElementById('lxDot'+i);
+      if(el) el.className='lx-dot'+(i===cur?' active':'');
+    }
+  };
+})();
+</script>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Scenario NEW-02: 授课学堂 -->
+    <div class="scenario reverse">
+      <div class="scenario-text">
+        <div class="scenario-no"><div class="num">2</div>SCENE 02 · 授课学堂</div>
+        <h3>服务标准，随时随地装进口袋</h3>
+        <div class="pain">门店分散全国，线下培训成本高、频次低；服务标准靠口耳相传，执行落差大，品牌形象难统一……</div>
+        <div class="feat-list">
+          <div class="feat"><div class="ico">🎓</div><div><strong>在线培训大学</strong>将集团服务手册、品牌标准、操作规程全部数字化，员工随时在线学习，无需离岗</div></div>
+          <div class="feat"><div class="ico">📋</div><div><strong>标准化课程体系</strong>从前台接待到客房清洁，从餐饮礼仪到紧急处置，分岗位、分层级精准推送</div></div>
+          <div class="feat"><div class="ico">✅</div><div><strong>考核与认证闭环</strong>学完即测，通过即认证，员工持证上岗，管理层实时掌握达标率</div></div>
+          <div class="feat"><div class="ico">🔄</div><div><strong>内容持续迭代</strong>新政策、新标准上线后一键推送全员，确保服务标准全集团同步</div></div>
+        </div>
+        <div class="hint-badge">
+          <span class="hint-icon">💡</span>
+          <span>工作台 → <strong>「学习中心」</strong> → 我的课程 → 开始学习</span>
+        </div>
+      </div>
+      <div class="scenario-demo">
+        <div class="demo-img">
+          <span class="demo-tag">LIVE · 授课学堂</span>
+          <img src="assets/img-06-a6df2e6bae.jpg" alt="授课学堂界面" />
+          <span class="demo-caption">在线培训大学 · 服务标准化</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scenario NEW-03: Agoal 组织大脑 -->
+    <div class="scenario">
+      <div class="scenario-text">
+        <div class="scenario-no"><div class="num">3</div>SCENE 03 · Agoal 组织大脑</div>
+        <h3>战略落地，从集团到每家门店</h3>
+        <div class="pain">年度经营目标停留在 PPT 里，各门店各自为政；区域总监无法实时掌握门店经营健康度，发现问题时已错过最佳干预窗口……</div>
+        <div class="feat-list">
+          <div class="feat"><div class="ico">🎯</div><div><strong>战略解码，激活集团上下</strong>将集团战略目标层层拆解至区域、门店、个人，确保每个岗位都清楚"我的目标是什么"</div></div>
+          <div class="feat"><div class="ico">📈</div><div><strong>经营管理精细化、数据化</strong>各成员酒店关键经营指标实时上报，入住率、RevPAR、客诉率等一屏呈现，告别月末汇报才知道的被动局面</div></div>
+          <div class="feat"><div class="ico">🔍</div><div><strong>及时发现经营问题症结</strong>系统自动预警偏差门店，区域管理者第一时间介入，将问题消灭在萌芽阶段</div></div>
+          <div class="feat"><div class="ico">🏨</div><div><strong>一店一策，精准运营支持</strong>针对不同门店的经营短板，制定个性化改善计划，总部与门店协同推进，促成年度经营目标达成</div></div>
+          <div class="feat"><div class="ico">👥</div><div><strong>人才盘点，组织能力可视化</strong>结合目标完成情况与能力评估，识别高潜人才与关键岗位风险，为集团人才战略提供数据支撑</div></div>
+        </div>
+        <div class="hint-badge">
+          <span class="hint-icon">💡</span>
+          <span>工作台 → <strong>「Agoal」</strong> → 组织目标 → 查看战略解码地图</span>
+        </div>
+      </div>
+      <div class="scenario-demo">
+        <div class="demo-img">
+          <span class="demo-tag">LIVE · 战略解码</span>
+          <img src="assets/img-06-a6df2e6bae.jpg" alt="战略解码界面" />
+          <span class="demo-caption">Agoal 组织大脑 · 战略解码与人才盘点</span>
+        </div>
+      </div>
+    </div>
+
     <!-- Scenario 1: 多语言视频会议 -->
     <div class="scenario">
       <div class="scenario-text">
-        <div class="scenario-no"><div class="num">1</div>SCENE 01 · 多语言视频会议</div>
+        <div class="scenario-no"><div class="num">4</div>SCENE 04 · 多语言视频会议</div>
         <h3>跨国晨会，再也不用担心听不懂</h3>
         <div class="pain">每周的区域经营分析会，外籍总经理说英文，本地团队讲中文，会议纪要总要花两小时整理……</div>
         <div class="feat-list">
@@ -1069,7 +1188,7 @@ footer{
       <div class="scenario-demo">
         <div class="demo-img">
           <span class="demo-tag">LIVE · 多语言会议</span>
-          <img src="assets/img-05-d879e3b524.png" alt="钉钉跨国视频会议界面 · 多语言实时字幕" width="800" height="353" />
+          <img src="assets/img-07-d879e3b524.png" alt="钉钉跨国视频会议界面 · 多语言实时字幕" width="800" height="353" />
           <span class="demo-caption">钉钉视频会议 · 实时翻译与AI听记</span>
         </div>
 
@@ -1079,7 +1198,7 @@ footer{
     <!-- Scenario 2: 在线知识库协作 -->
     <div class="scenario reverse">
       <div class="scenario-text">
-        <div class="scenario-no"><div class="num">2</div>SCENE 02 · 在线知识库协作</div>
+        <div class="scenario-no"><div class="num">5</div>SCENE 05 · 在线知识库协作</div>
         <h3>SOP更新一次，全集团同步到位</h3>
         <div class="pain">新版入住流程改了三个月，还有门店在用旧版；老师傅离职了，他脑子里的经验也跟着走了……</div>
         <div class="feat-list">
@@ -1093,7 +1212,7 @@ footer{
       <div class="scenario-demo">
         <a href="https://alidocs.dingtalk.com/i/spaces/lPDmrxQoenxD3zxd/overview" target="_blank" rel="noopener" style="display:block">        <div class="demo-img">
           <span class="demo-tag">运营助理 · 知识库智能问答</span>
-          <img src="assets/img-06-25c7d4e931.jpg" alt="SOP更新一次全集团同步到位" width="800" height="420" />
+          <img src="assets/img-08-25c7d4e931.jpg" alt="SOP更新一次全集团同步到位" width="800" height="420" />
           <span class="demo-caption">点击进入香格里拉知识库 →</span>
         </div>
         </a>
@@ -1103,7 +1222,7 @@ footer{
     <!-- Scenario 3: AI 搜问 -->
     <div class="scenario">
       <div class="scenario-text">
-        <div class="scenario-no"><div class="num">3</div>SCENE 03 · AI 搜问</div>
+        <div class="scenario-no"><div class="num">6</div>SCENE 06 · AI 搜问</div>
         <h3>不懂就问AI，比问同事还快</h3>
         <div class="pain">新来的前台小妹半夜值班，遇到特殊房型升级不知道怎么操作，打电话问主管又怕打扰……</div>
         <div class="feat-list">
@@ -1117,7 +1236,7 @@ footer{
       <div class="scenario-demo">
         <a href="https://deap-agent.dingtalk.com/h5/index.html?publish_h5=1&code=cfee1cc9-f77e-4687-917e-daf2afd111a0" target="_blank" rel="noopener" style="display:block">        <div class="demo-img">
           <span class="demo-tag">AI 助理 · 企业专属问答</span>
-          <img src="assets/img-07-507359ae85.jpg" alt="香格里拉AI助理对话界面" width="800" height="503" />
+          <img src="assets/img-09-507359ae85.jpg" alt="香格里拉AI助理对话界面" width="800" height="503" />
           <span class="demo-caption">点击与AI助理对话 →</span>
         </div>
         </a>
@@ -1127,7 +1246,7 @@ footer{
     <!-- Scenario 4: 安全合规与分级管控 -->
     <div class="scenario reverse">
       <div class="scenario-text">
-        <div class="scenario-no"><div class="num">4</div>SCENE 04 · 安全合规与分级管控</div>
+        <div class="scenario-no"><div class="num">7</div>SCENE 07 · 安全合规与分级管控</div>
         <h3>数据安全是底线，我们比你更在意</h3>
         <div class="pain">宾客个人信息、经营数据、薪酬明细……酒店行业的数据敏感度极高，一旦泄露后果不堪设想……</div>
         <div class="feat-list">
@@ -1171,7 +1290,7 @@ footer{
     <!-- Scenario 5: AI 表格 · 项目管理 -->
     <div class="scenario">
       <div class="scenario-text">
-        <div class="scenario-no"><div class="num">5</div>SCENE 05 · AI 表格 · 项目管理</div>
+        <div class="scenario-no"><div class="num">8</div>SCENE 08 · AI 表格 · 项目管理</div>
         <h3>新店筹备、重大接待，进度一眼看清</h3>
         <div class="pain">新店开业筹备涉及工程、采购、招聘、培训四条线，Excel表格传来传去版本混乱，周会上才发现关键节点delay了……</div>
         <div class="feat-list">
@@ -1185,7 +1304,7 @@ footer{
       <div class="scenario-demo">
         <a href="https://alidocs.dingtalk.com/i/nodes/LeBq413JAw4D2qaATrGAKyogWDOnGvpb?utm_scene=person_space" target="_blank" rel="noopener" style="display:block">        <div class="demo-img">
           <span class="demo-tag">AI 表格 · 新店筹备项目</span>
-          <img src="assets/img-08-bba818f0d1.png" alt="AI 表格 - 新店筹备项目管理界面" width="800" height="370" />
+          <img src="assets/img-10-bba818f0d1.png" alt="AI 表格 - 新店筹备项目管理界面" width="800" height="370" />
           <span class="demo-caption">点击进入 AI 表格 →</span>
         </div>
         </a>
@@ -1195,7 +1314,7 @@ footer{
     <!-- Scenario 6: 低代码搭建 -->
     <div class="scenario reverse">
       <div class="scenario-text">
-        <div class="scenario-no"><div class="num">6</div>SCENE 06 · 低代码搭建</div>
+        <div class="scenario-no"><div class="num">9</div>SCENE 09 · 低代码搭建</div>
         <h3>不用写代码，业务需求自己搞定</h3>
         <div class="pain">想做一个宾客满意度收集表，找IT排期要等两周；旺季临时加个物资申领流程，审批链还没配好旺季就过了……</div>
         <div class="feat-list">
@@ -1209,7 +1328,7 @@ footer{
       <div class="scenario-demo">
         <a href="https://www.aliwork.com/" target="_blank" rel="noopener" style="display:block">        <div class="demo-img">
           <span class="demo-tag">宜搭 · 酒店行业模板库</span>
-          <img src="assets/img-09-84f863432d.png" alt="宜搭低代码模板 - 酒店行业应用" width="800" height="530" />
+          <img src="assets/img-11-84f863432d.png" alt="宜搭低代码模板 - 酒店行业应用" width="800" height="530" />
           <span class="demo-caption">点击进入宜搭搭建 →</span>
         </div>
         </a>
