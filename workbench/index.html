@@ -712,6 +712,7 @@ footer{
 }
 
 </style>
+  <link rel="preload" as="image" href="assets/hero.jpg" fetchpriority="high">
 </head>
 <body>
 
@@ -772,7 +773,7 @@ footer{
     </div>
     <div class="hero-visual fade-in">
       <div class="hero-cover">
-        <img src="assets/img-00-60f4a32863.png" alt="香格里拉酒店 × 钉钉数字化协同" width="800" height="462" />
+        <img loading="eager" fetchpriority="high" decoding="async" src="assets/hero.jpg" alt="香格里拉酒店 × 钉钉数字化协同" width="800" height="462" />
         <div class="hero-cover-glow"></div>
         <div class="hero-cover-badge">
           <span class="dot"></span>
@@ -904,7 +905,7 @@ footer{
       <div class="wb-grid">
         <div class="wb-screenshot-wrap">
           <span class="wb-screenshot-tag">PC · 香格里拉运营工作台</span>
-          <img src="assets/img-01-d630183586.jpg" alt="运营工作台 PC 截图"/>
+          <img loading="lazy" decoding="async" src="assets/img-01-d630183586.jpg" alt="运营工作台 PC 截图"/>
         </div>
         <div>
           <div class="wb-card">
@@ -934,7 +935,7 @@ footer{
       <div class="wb-grid">
         <div class="wb-screenshot-wrap">
           <span class="wb-screenshot-tag">PC · 香格里拉人事工作台</span>
-          <img src="assets/img-02-a47b369e3c.jpg" alt="人事工作台 PC 截图"/>
+          <img loading="lazy" decoding="async" src="assets/img-02-a47b369e3c.jpg" alt="人事工作台 PC 截图"/>
         </div>
         <div>
           <div class="wb-card">
@@ -964,7 +965,7 @@ footer{
       <div class="wb-grid">
         <div class="wb-screenshot-wrap">
           <span class="wb-screenshot-tag">PC · 香格里拉IT工作台</span>
-          <img src="assets/img-03-cca1f9ffb7.jpg" alt="IT工作台 PC 截图"/>
+          <img loading="lazy" decoding="async" src="assets/img-03-cca1f9ffb7.jpg" alt="IT工作台 PC 截图"/>
         </div>
         <div>
           <div class="wb-card">
@@ -994,7 +995,7 @@ footer{
       <div class="wb-grid">
         <div class="wb-screenshot-wrap">
           <span class="wb-screenshot-tag">PC · 通用工作台</span>
-          <img src="assets/img-04-83da7a370f.jpg" alt="通用工作台 PC 截图"/>
+          <img loading="lazy" decoding="async" src="assets/img-04-83da7a370f.jpg" alt="通用工作台 PC 截图"/>
         </div>
         <div>
           <div class="wb-card">
@@ -1086,8 +1087,8 @@ footer{
           
 <div class="lx-carousel" id="lxCarousel">
   <div class="lx-track" id="lxTrack">
-    <div class="lx-slide"><img src="assets/img-05-e040b54f5c.jpg" alt="AI陪练界面1" /></div>
-    <div class="lx-slide"><img src="assets/img-05-e040b54f5c.jpg" alt="AI陪练界面2" /></div>
+    <div class="lx-slide"><img src="assets/img-05-e040b54f5c.jpg" alt="AI陪练界面1" loading="lazy" /></div>
+    <div class="lx-slide"><img src="assets/peilian-2.jpg" alt="AI陪练界面2" loading="lazy" /></div>
   </div>
   <button class="lx-arrow prev" onclick="lxMove(-1)">&#8249;</button>
   <button class="lx-arrow next" onclick="lxMove(1)">&#8250;</button>
@@ -1135,7 +1136,7 @@ footer{
       <div class="scenario-demo">
         <div class="demo-img">
           <span class="demo-tag">LIVE · 授课学堂</span>
-          <img src="assets/img-06-a6df2e6bae.jpg" alt="授课学堂界面" />
+          <img loading="lazy" decoding="async" src="assets/img-06-a6df2e6bae.jpg" alt="授课学堂界面" />
           <span class="demo-caption">在线培训大学 · 服务标准化</span>
         </div>
       </div>
@@ -1162,7 +1163,7 @@ footer{
       <div class="scenario-demo">
         <div class="demo-img">
           <span class="demo-tag">LIVE · 战略解码</span>
-          <img src="assets/img-06-a6df2e6bae.jpg" alt="战略解码界面" />
+          <img src="assets/strategy-map.jpg" alt="战略解码界面" loading="lazy" />
           <span class="demo-caption">Agoal 组织大脑 · 战略解码与人才盘点</span>
         </div>
       </div>
@@ -1188,7 +1189,7 @@ footer{
       <div class="scenario-demo">
         <div class="demo-img">
           <span class="demo-tag">LIVE · 多语言会议</span>
-          <img src="assets/img-07-d879e3b524.png" alt="钉钉跨国视频会议界面 · 多语言实时字幕" width="800" height="353" />
+          <img loading="lazy" decoding="async" src="assets/img-07-d879e3b524.jpg" alt="钉钉跨国视频会议界面 · 多语言实时字幕" width="800" height="353" />
           <span class="demo-caption">钉钉视频会议 · 实时翻译与AI听记</span>
         </div>
 
@@ -1212,7 +1213,7 @@ footer{
       <div class="scenario-demo">
         <a href="https://alidocs.dingtalk.com/i/spaces/lPDmrxQoenxD3zxd/overview" target="_blank" rel="noopener" style="display:block">        <div class="demo-img">
           <span class="demo-tag">运营助理 · 知识库智能问答</span>
-          <img src="assets/img-08-25c7d4e931.jpg" alt="SOP更新一次全集团同步到位" width="800" height="420" />
+          <img loading="lazy" decoding="async" src="assets/img-08-25c7d4e931.jpg" alt="SOP更新一次全集团同步到位" width="800" height="420" />
           <span class="demo-caption">点击进入香格里拉知识库 →</span>
         </div>
         </a>
@@ -1236,7 +1237,7 @@ footer{
       <div class="scenario-demo">
         <a href="https://deap-agent.dingtalk.com/h5/index.html?publish_h5=1&code=cfee1cc9-f77e-4687-917e-daf2afd111a0" target="_blank" rel="noopener" style="display:block">        <div class="demo-img">
           <span class="demo-tag">AI 助理 · 企业专属问答</span>
-          <img src="assets/img-09-507359ae85.jpg" alt="香格里拉AI助理对话界面" width="800" height="503" />
+          <img loading="lazy" decoding="async" src="assets/img-09-507359ae85.jpg" alt="香格里拉AI助理对话界面" width="800" height="503" />
           <span class="demo-caption">点击与AI助理对话 →</span>
         </div>
         </a>
@@ -1304,7 +1305,7 @@ footer{
       <div class="scenario-demo">
         <a href="https://alidocs.dingtalk.com/i/nodes/LeBq413JAw4D2qaATrGAKyogWDOnGvpb?utm_scene=person_space" target="_blank" rel="noopener" style="display:block">        <div class="demo-img">
           <span class="demo-tag">AI 表格 · 新店筹备项目</span>
-          <img src="assets/img-10-bba818f0d1.png" alt="AI 表格 - 新店筹备项目管理界面" width="800" height="370" />
+          <img loading="lazy" decoding="async" src="assets/img-10-bba818f0d1.jpg" alt="AI 表格 - 新店筹备项目管理界面" width="800" height="370" />
           <span class="demo-caption">点击进入 AI 表格 →</span>
         </div>
         </a>
@@ -1328,7 +1329,7 @@ footer{
       <div class="scenario-demo">
         <a href="https://www.aliwork.com/" target="_blank" rel="noopener" style="display:block">        <div class="demo-img">
           <span class="demo-tag">宜搭 · 酒店行业模板库</span>
-          <img src="assets/img-11-84f863432d.png" alt="宜搭低代码模板 - 酒店行业应用" width="800" height="530" />
+          <img loading="lazy" decoding="async" src="assets/img-11-84f863432d.jpg" alt="宜搭低代码模板 - 酒店行业应用" width="800" height="530" />
           <span class="demo-caption">点击进入宜搭搭建 →</span>
         </div>
         </a>
